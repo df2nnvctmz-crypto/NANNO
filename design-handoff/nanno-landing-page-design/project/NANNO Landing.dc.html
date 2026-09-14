@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/modernist-31149f89-f6d0-4550-bd16-4555c7d752d8/styles.css">
+  <script src="_ds/modernist-31149f89-f6d0-4550-bd16-4555c7d752d8/_ds_bundle.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #f3f2f2; -webkit-font-smoothing: antialiased; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</helmet>
+<div ref="{{ root }}" style="background:var(--color-bg); color:var(--color-text); font-family:var(--font-body); overflow-x:hidden; position:relative">
+
+  <header style="position:fixed; top:0; left:0; right:0; z-index:60; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:16px clamp(16px,4vw,56px); background:color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter:blur(8px); border-bottom:2px solid var(--color-divider)">
+    <a href="#top" style="font-family:var(--font-heading); font-weight:800; font-size:18px; letter-spacing:0.14em; color:var(--color-text); text-decoration:none">NANNO</a>
+    <nav style="display:flex; gap:clamp(12px,2.4vw,32px); font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase">
+      <a href="#work" style="color:var(--color-text); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">Work</a>
+      <a href="#services" style="color:var(--color-text); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">Services</a>
+      <a href="#process" style="color:var(--color-text); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">Process</a>
+      <a href="#about" style="color:var(--color-text); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">Studio</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary" data-magnetic="6" style="background:var(--nn-accent, #065143); color:var(--color-bg); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; padding:10px 16px; text-decoration:none">Start a project</a>
+  </header>
+
+  <section id="top" data-screen-label="Hero" style="min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; gap:clamp(28px,5vh,64px); padding:clamp(96px,14vh,180px) clamp(16px,4vw,56px) clamp(28px,5vh,56px); position:relative">
+    <div style="position:absolute; top:clamp(84px,12vh,140px); left:clamp(16px,4vw,56px); right:clamp(16px,4vw,56px); display:flex; justify-content:space-between; gap:24px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-neutral-700)">
+      <span>Scientific illustration studio</span>
+      <span>Est. 2019 / Worldwide</span>
+    </div>
+
+    <h1 style="margin:0; font-family:var(--font-heading); font-weight:800; line-height:0.84; letter-spacing:-0.045em; text-transform:uppercase">
+      <span data-split="1" data-mag="10" data-px="0.04" style="display:block; font-size:clamp(52px,13.5vw,230px)">We make</span>
+      <span data-split="1" data-mag="20" data-px="-0.12" style="display:block; font-size:clamp(64px,19vw,330px); margin-left:-0.06em; white-space:nowrap">Science</span>
+      <span data-split="1" data-mag="14" data-px="0.09" style="display:block; font-size:clamp(52px,14.5vw,250px)">Visible<span style="color:var(--nn-accent, #065143)">.</span></span>
+    </h1>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(20px,3vw,48px); align-items:end; border-top:2px solid var(--color-divider); padding-top:20px">
+      <p style="margin:0; max-width:34ch; font-size:clamp(14px,1.15vw,17px); line-height:1.45; text-wrap:pretty">Scientific drawings &amp; graphical abstracts for ideas that deserve to be understood.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center">
+        <a href="#work" data-magnetic="8" style="font-family:var(--font-heading); font-weight:800; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-text); text-decoration:none; border-bottom:2px solid var(--nn-accent, #065143); padding-bottom:4px">Explore our work →</a>
+        <a href="#contact" data-magnetic="8" style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-neutral-700); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">Start a project</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="From complexity to clarity" style="border-top:2px solid var(--color-divider); padding:clamp(72px,14vh,180px) clamp(16px,4vw,56px)">
+    <h2 data-scatter="1" data-split="1" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(40px,10.5vw,180px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase">From complexity</h2>
+    <h2 data-scatter="1" data-split="1" data-px="0.06" style="margin:0 0 clamp(32px,6vh,72px); font-family:var(--font-heading); font-weight:800; font-size:clamp(40px,10.5vw,180px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; text-align:right; color:var(--nn-accent, #065143)">To clarity.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:clamp(20px,3vw,56px); border-top:2px solid var(--color-divider); padding-top:24px">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-neutral-700)">01 / The studio</span>
+      <p data-reveal="1" style="grid-column:span 2; margin:0; max-width:56ch; font-size:clamp(15px,1.35vw,19px); line-height:1.5; text-wrap:pretty">We translate complex scientific concepts into precise, compelling visual stories — from molecular mechanisms and biological pathways to graphical abstracts and publication-ready scientific illustrations.</p>
+    </div>
+  </section>
+
+  <section id="work" data-screen-label="Selected work" style="border-top:2px solid var(--color-divider); padding:clamp(56px,10vh,120px) clamp(16px,4vw,56px) clamp(72px,12vh,160px)">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:clamp(32px,6vh,80px)">
+      <h2 data-split="1" data-mag="6" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(40px,9vw,150px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase">Selected work</h2>
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-neutral-700)">06 projects / 2023—2026</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(24px,4vw,64px) clamp(16px,2vw,32px)">
+
+      <article data-project="1" data-cursor="View project →" data-offset="0" style="grid-column:span 7; position:relative; cursor:none">
+        <div data-img="1" data-reveal="1" data-scale="0.06" style="aspect-ratio:4/3; background:var(--color-surface); overflow:hidden; border:2px solid var(--color-divider)">
+          <svg viewBox="0 0 400 300" style="width:100%; height:100%; display:block" aria-hidden="true">
+            <g fill="none" stroke="#201e1d" stroke-width="1.2">
+              <circle cx="200" cy="150" r="118"></circle><circle cx="200" cy="150" r="74"></circle><circle cx="200" cy="150" r="30"></circle>
+              <path d="M82 150h-42M318 150h42M200 32V6M200 268v26"></path>
+              <path d="M200 120c26-18 54 6 40 30-12 20-46 14-48-10" stroke="#065143"></path>
+            </g>
+            <g fill="#201e1d"><circle cx="146" cy="96" r="3"></circle><circle cx="262" cy="118" r="3"></circle><circle cx="170" cy="220" r="3"></circle><circle cx="252" cy="206" r="3"></circle></g>
+            <g stroke="#065143" stroke-width="1.2" fill="none" stroke-dasharray="4 5"><path d="M146 96 200 150 262 118M170 220 200 150 252 206"></path></g>
+          </svg>
+        </div>
+        <div data-hugetitle="1" style="position:absolute; inset:auto 0 8% 0; pointer-events:none; opacity:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,5vw,74px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; color:var(--color-bg); mix-blend-mode:difference; padding:0 16px">Cellular signaling</div>
+        <div style="display:flex; justify-content:space-between; gap:16px; margin-top:14px; border-top:2px solid var(--color-divider); padding-top:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+          <span>01 — Molecular biology / Graphical abstract</span><span>2026</span>
+        </div>
+        <h3 style="margin:8px 0 4px; font-size:clamp(20px,2.2vw,30px); letter-spacing:-0.02em">Cellular Signaling</h3>
+        <p style="margin:0; max-width:44ch; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Receptor cascade mapped as a single readable loop for a Cell Reports submission.</p>
+      </article>
+
+      <article data-project="1" data-cursor="View project →" data-offset="90" style="grid-column:span 5; position:relative; cursor:none; align-self:end">
+        <div data-img="1" data-reveal="1" data-scale="0.08" style="aspect-ratio:3/4; background:var(--color-surface); overflow:hidden; border:2px solid var(--color-divider)">
+          <svg viewBox="0 0 300 400" style="width:100%; height:100%; display:block" aria-hidden="true">
+            <g fill="none" stroke="#201e1d" stroke-width="1.2">
+              <path d="M40 40c60 30 40 90 90 110 50 20 70 70 40 120"></path>
+              <path d="M40 40c-6 40 26 60 60 62M130 150c-30 14-36 54-14 74M170 270c34-6 60 16 64 48"></path>
+              <path d="M96 210c40-10 62 18 58 56-4 36-48 54-76 30-24-20-16-74 18-86z"></path>
+              <path d="M212 96c30-8 50 14 46 44-4 28-38 42-58 22-18-18-10-60 12-66z"></path>
+            </g>
+            <g fill="#201e1d"><circle cx="120" cy="248" r="4"></circle><circle cx="140" cy="268" r="3"></circle><circle cx="108" cy="278" r="3"></circle><circle cx="146" cy="232" r="2.5"></circle></g>
+            <g stroke="#065143" stroke-width="1.4" fill="none"><path d="M156 262h44M188 250l14 12-14 12"></path></g>
+          </svg>
+        </div>
+        <div data-hugetitle="1" style="position:absolute; inset:auto 0 8% 0; pointer-events:none; opacity:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,3.4vw,50px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; color:var(--color-bg); mix-blend-mode:difference; padding:0 14px">The synapse</div>
+        <div style="display:flex; justify-content:space-between; gap:16px; margin-top:14px; border-top:2px solid var(--color-divider); padding-top:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+          <span>02 — Neuroscience / Illustration</span><span>2025</span>
+        </div>
+        <h3 style="margin:8px 0 4px; font-size:clamp(20px,2.2vw,30px); letter-spacing:-0.02em">The Architecture of the Synapse</h3>
+        <p style="margin:0; max-width:40ch; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Cross-section plate for a neurobiology textbook chapter.</p>
+      </article>
+
+      <article data-project="1" data-cursor="View project →" data-offset="-60" style="grid-column:span 4; position:relative; cursor:none">
+        <div data-img="1" data-reveal="1" data-scale="0.07" style="aspect-ratio:1/1; background:var(--color-surface); overflow:hidden; border:2px solid var(--color-divider)">
+          <svg viewBox="0 0 300 300" style="width:100%; height:100%; display:block" aria-hidden="true">
+            <g fill="none" stroke="#201e1d" stroke-width="1.2">
+              <path d="M90 10c50 40 50 80 0 120s-50 80 0 120M210 10c-50 40-50 80 0 120s50 80 0 120"></path>
+              <path d="M96 40h108M92 70h116M96 100h108M108 130h84M96 160h108M92 190h116M96 220h108M108 250h84"></path>
+            </g>
+            <g stroke="#065143" stroke-width="2" fill="none"><path d="M40 130h56M204 130h56M150 118v24"></path></g>
+            <rect x="126" y="112" width="48" height="36" fill="none" stroke="#065143" stroke-width="1.4"></rect>
+          </svg>
+        </div>
+        <div data-hugetitle="1" style="position:absolute; inset:auto 0 8% 0; pointer-events:none; opacity:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(22px,2.8vw,44px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; color:var(--color-bg); mix-blend-mode:difference; padding:0 14px">CRISPR</div>
+        <div style="display:flex; justify-content:space-between; gap:16px; margin-top:14px; border-top:2px solid var(--color-divider); padding-top:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+          <span>03 — Genetics / Visual abstract</span><span>2025</span>
+        </div>
+        <h3 style="margin:8px 0 4px; font-size:clamp(20px,2.2vw,30px); letter-spacing:-0.02em">CRISPR Mechanisms</h3>
+        <p style="margin:0; max-width:40ch; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Editing sequence explained in four frames for a biotech investor deck.</p>
+      </article>
+
+      <article data-project="1" data-cursor="View project →" data-offset="40" style="grid-column:span 4; position:relative; cursor:none; margin-top:clamp(0px,6vw,80px)">
+        <div data-img="1" data-reveal="1" data-scale="0.07" style="aspect-ratio:4/5; background:var(--color-surface); overflow:hidden; border:2px solid var(--color-divider)">
+          <svg viewBox="0 0 300 375" style="width:100%; height:100%; display:block" aria-hidden="true">
+            <path d="M30 60c60-40 120 20 90 70s-110 30-80 90 130 20 120 90" fill="none" stroke="#201e1d" stroke-width="1.4"></path>
+            <g fill="none" stroke="#201e1d" stroke-width="1"><circle cx="30" cy="60" r="9"></circle><circle cx="118" cy="118" r="9"></circle><circle cx="72" cy="200" r="9"></circle><circle cx="186" cy="256" r="9"></circle><circle cx="180" cy="310" r="9"></circle></g>
+            <g fill="none" stroke="#065143" stroke-width="1.2" stroke-dasharray="3 4"><path d="M30 60 118 118 72 200 186 256 180 310"></path></g>
+            <g fill="none" stroke="#201e1d" stroke-width="1" opacity="0.5"><path d="M0 340h300M0 20h300"></path></g>
+          </svg>
+        </div>
+        <div data-hugetitle="1" style="position:absolute; inset:auto 0 8% 0; pointer-events:none; opacity:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(22px,2.8vw,44px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; color:var(--color-bg); mix-blend-mode:difference; padding:0 14px">Protein folding</div>
+        <div style="display:flex; justify-content:space-between; gap:16px; margin-top:14px; border-top:2px solid var(--color-divider); padding-top:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+          <span>04 — Structural biology / Illustration</span><span>2024</span>
+        </div>
+        <h3 style="margin:8px 0 4px; font-size:clamp(20px,2.2vw,30px); letter-spacing:-0.02em">Protein Folding</h3>
+        <p style="margin:0; max-width:40ch; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Folding intermediates drawn as one continuous line.</p>
+      </article>
+
+      <article data-project="1" data-cursor="View project →" data-offset="-40" style="grid-column:span 4; position:relative; cursor:none">
+        <div data-img="1" data-reveal="1" data-scale="0.07" style="aspect-ratio:1/1; background:var(--color-surface); overflow:hidden; border:2px solid var(--color-divider)">
+          <svg viewBox="0 0 300 300" style="width:100%; height:100%; display:block" aria-hidden="true">
+            <circle cx="150" cy="150" r="120" fill="none" stroke="#201e1d" stroke-width="1" stroke-dasharray="6 6"></circle>
+            <g fill="none" stroke="#201e1d" stroke-width="1.2">
+              <circle cx="120" cy="120" r="34"></circle><circle cx="180" cy="150" r="26"></circle><circle cx="132" cy="196" r="22"></circle><circle cx="196" cy="100" r="14"></circle><circle cx="96" cy="170" r="12"></circle>
+            </g>
+            <g fill="#065143"><circle cx="120" cy="120" r="4"></circle><circle cx="180" cy="150" r="4"></circle><circle cx="132" cy="196" r="4"></circle></g>
+            <g fill="none" stroke="#201e1d" stroke-width="0.8" opacity="0.55"><path d="M150 30v240M30 150h240"></path></g>
+          </svg>
+        </div>
+        <div data-hugetitle="1" style="position:absolute; inset:auto 0 8% 0; pointer-events:none; opacity:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(22px,2.8vw,44px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; color:var(--color-bg); mix-blend-mode:difference; padding:0 14px">Tumor micro&shy;environment</div>
+        <div style="display:flex; justify-content:space-between; gap:16px; margin-top:14px; border-top:2px solid var(--color-divider); padding-top:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+          <span>05 — Oncology / Graphical abstract</span><span>2024</span>
+        </div>
+        <h3 style="margin:8px 0 4px; font-size:clamp(20px,2.2vw,30px); letter-spacing:-0.02em">Tumor Microenvironment</h3>
+        <p style="margin:0; max-width:40ch; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Cell populations and signalling gradients for an immuno-oncology group.</p>
+      </article>
+
+      <article data-project="1" data-cursor="View project →" data-offset="70" style="grid-column:span 6; position:relative; cursor:none; margin-top:clamp(0px,4vw,56px)">
+        <div data-img="1" data-reveal="1" data-scale="0.06" style="aspect-ratio:16/10; background:var(--color-surface); overflow:hidden; border:2px solid var(--color-divider)">
+          <svg viewBox="0 0 400 250" style="width:100%; height:100%; display:block" aria-hidden="true">
+            <circle cx="200" cy="125" r="86" fill="none" stroke="#201e1d" stroke-width="1.6"></circle>
+            <g fill="none" stroke="#065143" stroke-width="5" stroke-linecap="butt"><path d="M200 39a86 86 0 0 1 74 43"></path><path d="M136 178a86 86 0 0 1-8-84"></path></g>
+            <g fill="none" stroke="#201e1d" stroke-width="1"><path d="M200 39V12M286 125h28M200 211v26M114 125H86"></path>
+              <rect x="20" y="30" width="34" height="34"></rect><rect x="346" y="186" width="34" height="34"></rect><rect x="346" y="30" width="34" height="34"></rect><rect x="20" y="186" width="34" height="34"></rect></g>
+            <g fill="#201e1d"><circle cx="200" cy="125" r="3"></circle></g>
+          </svg>
+        </div>
+        <div data-hugetitle="1" style="position:absolute; inset:auto 0 8% 0; pointer-events:none; opacity:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,4vw,62px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase; color:var(--color-bg); mix-blend-mode:difference; padding:0 16px">Synthetic biology</div>
+        <div style="display:flex; justify-content:space-between; gap:16px; margin-top:14px; border-top:2px solid var(--color-divider); padding-top:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+          <span>06 — Biotechnology / Visualization</span><span>2023</span>
+        </div>
+        <h3 style="margin:8px 0 4px; font-size:clamp(20px,2.2vw,30px); letter-spacing:-0.02em">Synthetic Biology</h3>
+        <p style="margin:0; max-width:44ch; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Plasmid construction system drawn as a modular kit for a platform company.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="services" data-screen-label="Services" style="border-top:2px solid var(--color-divider); padding:clamp(56px,10vh,120px) clamp(16px,4vw,56px) clamp(40px,8vh,100px)">
+    <h2 data-split="1" data-mag="8" data-px="-0.05" style="margin:0 0 clamp(32px,7vh,90px); font-family:var(--font-heading); font-weight:800; font-size:clamp(48px,13vw,220px); line-height:0.86; letter-spacing:-0.045em; text-transform:uppercase">What we draw</h2>
+
+    <div data-service="1" data-reveal="1" style="display:grid; grid-template-columns:minmax(0,1fr); gap:8px; border-top:2px solid var(--color-divider); padding:clamp(28px,6vh,64px) 0">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; color:var(--nn-accent, #065143)">01</span>
+      <h3 data-px="0.03" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,6.4vw,110px); line-height:0.92; letter-spacing:-0.04em; text-transform:uppercase">Scientific illustration</h3>
+      <p style="margin:6px 0 0; max-width:48ch; font-size:clamp(14px,1.1vw,16px); line-height:1.5; color:var(--color-neutral-800)">Detailed visual representations of biological, medical, chemical, and physical concepts.</p>
+    </div>
+    <div data-service="1" data-reveal="1" style="display:grid; grid-template-columns:minmax(0,1fr); gap:8px; border-top:2px solid var(--color-divider); padding:clamp(28px,6vh,64px) 0">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; color:var(--nn-accent, #065143)">02</span>
+      <h3 data-px="-0.03" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,6.4vw,110px); line-height:0.92; letter-spacing:-0.04em; text-transform:uppercase">Graphical abstracts</h3>
+      <p style="margin:6px 0 0; max-width:48ch; font-size:clamp(14px,1.1vw,16px); line-height:1.5; color:var(--color-neutral-800)">Clear visual summaries designed to communicate research at a glance.</p>
+    </div>
+    <div data-service="1" data-reveal="1" style="display:grid; grid-template-columns:minmax(0,1fr); gap:8px; border-top:2px solid var(--color-divider); padding:clamp(28px,6vh,64px) 0">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; color:var(--nn-accent, #065143)">03</span>
+      <h3 data-px="0.04" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,5.4vw,92px); line-height:0.92; letter-spacing:-0.04em; text-transform:uppercase">Mechanism &amp; pathway drawings</h3>
+      <p style="margin:6px 0 0; max-width:48ch; font-size:clamp(14px,1.1vw,16px); line-height:1.5; color:var(--color-neutral-800)">Precise visual explanations of biological pathways, molecular mechanisms, and complex processes.</p>
+    </div>
+    <div data-service="1" data-reveal="1" style="display:grid; grid-template-columns:minmax(0,1fr); gap:8px; border-top:2px solid var(--color-divider); padding:clamp(28px,6vh,64px) 0">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; color:var(--nn-accent, #065143)">04</span>
+      <h3 data-px="-0.04" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,5.4vw,92px); line-height:0.92; letter-spacing:-0.04em; text-transform:uppercase">Journal &amp; publication artwork</h3>
+      <p style="margin:6px 0 0; max-width:48ch; font-size:clamp(14px,1.1vw,16px); line-height:1.5; color:var(--color-neutral-800)">Publication-ready figures, cover artwork, and scientific visual communication.</p>
+    </div>
+    <div data-service="1" data-reveal="1" style="display:grid; grid-template-columns:minmax(0,1fr); gap:8px; border-top:2px solid var(--color-divider); border-bottom:2px solid var(--color-divider); padding:clamp(28px,6vh,64px) 0">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; color:var(--nn-accent, #065143)">05</span>
+      <h3 data-px="0.03" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,6.4vw,110px); line-height:0.92; letter-spacing:-0.04em; text-transform:uppercase">Visual science direction</h3>
+      <p style="margin:6px 0 0; max-width:48ch; font-size:clamp(14px,1.1vw,16px); line-height:1.5; color:var(--color-neutral-800)">Helping researchers transform complicated ideas into compelling visual narratives.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Science x design" style="position:relative; overflow:hidden; padding:clamp(72px,16vh,200px) clamp(16px,4vw,56px); min-height:80svh; display:flex; flex-direction:column; justify-content:center">
+    <div aria-hidden="true" style="position:absolute; inset:0; pointer-events:none; opacity:0.5">
+      <svg data-mag="26" data-px="0.05" viewBox="0 0 200 200" style="position:absolute; top:6%; left:4%; width:clamp(90px,16vw,240px); height:auto">
+        <g fill="none" stroke="#201e1d" stroke-width="1.2"><circle cx="100" cy="100" r="18"></circle><circle cx="40" cy="60" r="10"></circle><circle cx="160" cy="70" r="10"></circle><circle cx="70" cy="164" r="10"></circle><circle cx="156" cy="150" r="10"></circle><path d="M100 100 40 60M100 100 160 70M100 100 70 164M100 100 156 150"></path></g>
+      </svg>
+      <svg data-mag="-34" data-py="0.08" viewBox="0 0 160 320" style="position:absolute; top:12%; right:5%; width:clamp(60px,9vw,140px); height:auto">
+        <g fill="none" stroke="#201e1d" stroke-width="1.2"><path d="M40 0c60 40 60 80 0 120s-60 80 0 120 60 80 0 120M120 0c-60 40-60 80 0 120s60 80 0 120-60 80 0 120"></path><path d="M46 30h68M44 70h72M46 110h68M52 150h56M46 190h68M44 230h72M46 270h68"></path></g>
+      </svg>
+      <svg data-mag="20" data-px="-0.06" viewBox="0 0 240 160" style="position:absolute; bottom:8%; left:12%; width:clamp(110px,20vw,300px); height:auto">
+        <g fill="none" stroke="#201e1d" stroke-width="1"><path d="M0 120c40-70 80 40 120-20s70 30 120-40"></path><path d="M0 140h240"></path></g>
+        <g fill="none" stroke="#065143" stroke-width="1"><circle cx="120" cy="100" r="26"></circle><circle cx="120" cy="100" r="6"></circle></g>
+      </svg>
+      <svg data-mag="-22" data-py="-0.06" viewBox="0 0 200 200" style="position:absolute; bottom:4%; right:10%; width:clamp(90px,14vw,220px); height:auto">
+        <g fill="none" stroke="#201e1d" stroke-width="1"><rect x="20" y="20" width="160" height="160"></rect><path d="M20 60h160M20 100h160M20 140h160M60 20v160M100 20v160M140 20v160"></path></g>
+        <g fill="#065143"><circle cx="60" cy="100" r="4"></circle><circle cx="140" cy="60" r="4"></circle><circle cx="100" cy="140" r="4"></circle></g>
+      </svg>
+    </div>
+    <h2 data-px="-0.14" style="position:relative; margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,9.5vw,165px); line-height:0.9; letter-spacing:-0.045em; text-transform:uppercase">Science is complex.</h2>
+    <h2 data-px="0.14" style="position:relative; margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,9.5vw,165px); line-height:0.9; letter-spacing:-0.045em; text-transform:uppercase; text-align:right">The image shouldn't be<span style="color:var(--nn-accent, #065143)">.</span></h2>
+  </section>
+
+  <section id="process" data-screen-label="Process" style="border-top:2px solid var(--color-divider); padding:clamp(56px,10vh,120px) clamp(16px,4vw,56px)">
+    <h2 data-split="1" data-mag="6" style="margin:0 0 clamp(32px,6vh,72px); font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,8.5vw,140px); line-height:0.9; letter-spacing:-0.04em; text-transform:uppercase">From idea → image</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; background:var(--color-divider)">
+      <div data-reveal="1" style="background:var(--color-bg); padding:clamp(20px,3vw,32px) clamp(16px,2vw,24px); display:flex; flex-direction:column; gap:10px; min-height:clamp(220px,30vh,320px)">
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,5vw,72px); line-height:1; letter-spacing:-0.04em; color:var(--nn-accent, #065143)">01</span>
+        <h4 style="margin:0; font-size:18px; letter-spacing:0.02em; text-transform:uppercase">Discover</h4>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Understand the research, audience, and scientific story.</p>
+      </div>
+      <div data-reveal="1" style="background:var(--color-bg); padding:clamp(20px,3vw,32px) clamp(16px,2vw,24px); display:flex; flex-direction:column; gap:10px; min-height:clamp(220px,30vh,320px)">
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,5vw,72px); line-height:1; letter-spacing:-0.04em; color:var(--nn-accent, #065143)">02</span>
+        <h4 style="margin:0; font-size:18px; letter-spacing:0.02em; text-transform:uppercase">Structure</h4>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Identify the visual hierarchy and narrative.</p>
+      </div>
+      <div data-reveal="1" style="background:var(--color-bg); padding:clamp(20px,3vw,32px) clamp(16px,2vw,24px); display:flex; flex-direction:column; gap:10px; min-height:clamp(220px,30vh,320px)">
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,5vw,72px); line-height:1; letter-spacing:-0.04em; color:var(--nn-accent, #065143)">03</span>
+        <h4 style="margin:0; font-size:18px; letter-spacing:0.02em; text-transform:uppercase">Draw</h4>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Develop the scientific illustration or graphical abstract.</p>
+      </div>
+      <div data-reveal="1" style="background:var(--color-bg); padding:clamp(20px,3vw,32px) clamp(16px,2vw,24px); display:flex; flex-direction:column; gap:10px; min-height:clamp(220px,30vh,320px)">
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:clamp(36px,5vw,72px); line-height:1; letter-spacing:-0.04em; color:var(--nn-accent, #065143)">04</span>
+        <h4 style="margin:0; font-size:18px; letter-spacing:0.02em; text-transform:uppercase">Refine</h4>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--color-neutral-800)">Polish, annotate, and prepare the final artwork.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" data-screen-label="About" style="border-top:2px solid var(--color-divider); padding:clamp(72px,14vh,180px) clamp(16px,4vw,56px)">
+    <h2 data-scatter="1" data-split="1" style="margin:0 0 clamp(32px,6vh,72px); max-width:18ch; font-family:var(--font-heading); font-weight:800; font-size:clamp(32px,7vw,120px); line-height:0.92; letter-spacing:-0.04em; text-transform:uppercase">We work where science meets visual culture.</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(20px,3vw,56px); border-top:2px solid var(--color-divider); padding-top:24px">
+      <span style="font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-neutral-700)">02 / Studio</span>
+      <p data-reveal="1" style="margin:0; max-width:52ch; font-size:clamp(15px,1.3vw,18px); line-height:1.55; text-wrap:pretty">NANNO is a small studio of illustrators and designers trained in both biology and art direction. We work directly with principal investigators, communication leads, and journal editors — reading the paper before drawing a single line.</p>
+      <div style="display:flex; flex-direction:column; gap:10px; font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-neutral-700)">
+        <span>124 published figures</span>
+        <span>38 journals</span>
+        <span>11 biotech &amp; pharma partners</span>
+        <a href="#contact" style="color:var(--nn-accent, #065143); text-decoration:none; margin-top:8px">More about us →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-screen-label="Final CTA" style="border-top:2px solid var(--color-divider); background:var(--color-text); color:var(--color-bg); padding:clamp(72px,18vh,220px) clamp(16px,4vw,56px); overflow:hidden">
+    <div data-py="-0.05">
+      <h2 data-split="1" data-mag="12" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(40px,11vw,190px); line-height:0.86; letter-spacing:-0.045em; text-transform:uppercase">Have something</h2>
+      <h2 data-split="1" data-mag="22" style="margin:0; font-family:var(--font-heading); font-weight:800; font-size:clamp(52px,15vw,250px); line-height:0.86; letter-spacing:-0.05em; text-transform:uppercase; color:var(--nn-accent, #065143)">Complex</h2>
+      <h2 data-split="1" data-mag="12" style="margin:0 0 clamp(28px,5vh,56px); font-family:var(--font-heading); font-weight:800; font-size:clamp(40px,11vw,190px); line-height:0.86; letter-spacing:-0.045em; text-transform:uppercase">To explain?</h2>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:20px 36px; border-top:2px solid color-mix(in srgb, var(--color-bg) 40%, transparent); padding-top:24px">
+        <p style="margin:0; font-size:clamp(16px,1.6vw,22px)">Let's draw it.</p>
+        <a href="mailto:studio@nanno.co" data-magnetic="10" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(14px,1.3vw,18px); letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); text-decoration:none; border-bottom:2px solid var(--nn-accent, #065143); padding-bottom:6px">Start a project →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="background:var(--color-text); color:var(--color-bg); padding:clamp(32px,6vh,64px) clamp(16px,4vw,56px) 28px; border-top:2px solid color-mix(in srgb, var(--color-bg) 25%, transparent)">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px clamp(20px,3vw,48px); font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase">
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:18px; letter-spacing:0.14em">NANNO</span>
+        <span style="color:color-mix(in srgb, var(--color-bg) 60%, transparent)">Scientific illustration</span>
+        <span style="color:color-mix(in srgb, var(--color-bg) 60%, transparent)">Graphical abstracts</span>
+        <span style="color:color-mix(in srgb, var(--color-bg) 60%, transparent)">Scientific visualization</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <a href="mailto:studio@nanno.co" style="color:var(--color-bg); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">studio@nanno.co</a>
+        <a href="#top" style="color:var(--color-bg); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">Instagram</a>
+        <a href="#top" style="color:var(--color-bg); text-decoration:none" style-hover="color:var(--nn-accent, #065143)">LinkedIn</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; color:color-mix(in srgb, var(--color-bg) 60%, transparent)">
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;staggered&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#065143&quot;,&quot;options&quot;:[&quot;#065143&quot;,&quot;#201e1d&quot;,&quot;#ae1800&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Color&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+  renderVals() { return { root: this.ref }; }
+
+  componentDidMount() {
+    this.setup();
+  }
+  componentDidUpdate() {
+    this.teardown();
+    this.setup();
+  }
+  componentWillUnmount() { this.teardown(); }
+
+  teardown() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    (this._off || []).forEach(f => f());
+    this._off = [];
+    if (this._io) this._io.disconnect();
+    if (this._cursor && this._cursor.parentNode) this._cursor.parentNode.removeChild(this._cursor);
+    if (this._blob && this._blob.parentNode) this._blob.parentNode.removeChild(this._blob);
+  }
+
+  setup() {
+    const root = this.ref.current;
+    if (!root) return;
+    this._off = [];
+    root.style.setProperty('--nn-accent', this.props.accent || '#065143');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || this.props.motion === false;
+    const stagger = this.props.staggered !== false;
+
+    // — staggered editorial offsets on portfolio items —
+    root.querySelectorAll('[data-offset]').forEach(el => {
+      const v = parseFloat(el.dataset.offset) || 0;
+      el.style.transform = stagger && window.innerWidth > 900 ? 'translateY(' + v * 0.5 + 'px)' : 'none';
+    });
+
+    // — character splitting —
+    root.querySelectorAll('[data-split]').forEach(el => {
+      if (el.querySelector('[data-ch]')) return;
+      const frag = document.createDocumentFragment();
+      Array.from(el.childNodes).forEach(node => {
+        if (node.nodeType !== 3) { frag.appendChild(node.cloneNode(true)); return; }
+        Array.from(node.textContent).forEach(ch => {
+          const s = document.createElement('span');
+          s.setAttribute('data-ch', '1');
+          s.textContent = ch === ' ' ? '\u00A0' : ch;
+          s.style.display = 'inline-block';
+          s.style.willChange = 'transform';
+          frag.appendChild(s);
+        });
+      });
+      el.textContent = '';
+      el.appendChild(frag);
+    });
+
+    // — reveal on enter (mask + lift) —
+    const revealEls = Array.from(root.querySelectorAll('[data-reveal]'));
+    if (!reduced) {
+      revealEls.forEach(el => {
+        el.style.opacity = '0';
+        el.style.clipPath = 'inset(0 0 18% 0)';
+        el.style.transform = (el.style.transform && el.style.transform !== 'none' ? el.style.transform + ' ' : '') + 'translateY(26px)';
+        el.style.transition = 'opacity .9s cubic-bezier(.16,1,.3,1), clip-path 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1)';
+      });
+      this._io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.style.opacity = '1';
+          el.style.clipPath = 'inset(0 0 0 0)';
+          el.style.transform = el.style.transform.replace('translateY(26px)', 'translateY(0px)');
+          this._io.unobserve(el);
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+      revealEls.forEach(el => this._io.observe(el));
+    }
+
+    // — project hover: huge title + image scale + label cursor —
+    const cursor = document.createElement('div');
+    cursor.style.cssText = 'position:fixed;z-index:90;top:0;left:0;pointer-events:none;display:flex;align-items:center;justify-content:center;text-align:center;width:104px;height:104px;border-radius:999px;background:var(--nn-accent,#065143);color:#f3f2f2;font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;opacity:0;transform:translate(-50%,-50%) scale(.6);transition:opacity .28s ease, transform .35s cubic-bezier(.16,1,.3,1)';
+    root.appendChild(cursor);
+    this._cursor = cursor;
+
+    const blob = document.createElement('div');
+    blob.style.cssText = 'position:fixed;z-index:5;top:0;left:0;width:190px;height:190px;border-radius:999px;pointer-events:none;opacity:0;border:1px solid color-mix(in srgb, var(--color-text) 22%, transparent);box-shadow:inset 0 0 0 6px color-mix(in srgb, var(--color-bg) 14%, transparent);backdrop-filter:blur(0.4px) contrast(1.06) brightness(1.03) saturate(1.05);-webkit-backdrop-filter:blur(0.4px) contrast(1.06) brightness(1.03) saturate(1.05);transform:translate(-50%,-50%);transition:opacity .5s ease';
+    root.appendChild(blob);
+    this._blob = blob;
+
+    // — lens magnification: a scaled clone of the diagram under the cursor —
+    const lensInner = document.createElement('div');
+    lensInner.style.cssText = 'position:absolute;inset:0;border-radius:999px;overflow:hidden;pointer-events:none';
+    const lensClone = document.createElement('div');
+    lensClone.style.cssText = 'position:absolute;transform-origin:0 0;will-change:transform';
+    lensInner.appendChild(lensClone);
+    blob.appendChild(lensInner);
+    this._lens = { inner: lensInner, clone: lensClone, target: null, zoom: 1.75 };
+
+    root.querySelectorAll('[data-img]').forEach(el => {
+      const enter = () => {
+        const L = this._lens;
+        L.target = el;
+        lensClone.innerHTML = el.innerHTML;
+        lensInner.style.background = 'var(--color-surface)';
+      };
+      const leave = () => {
+        this._lens.target = null;
+        lensClone.innerHTML = '';
+        lensInner.style.background = 'transparent';
+      };
+      el.addEventListener('pointerenter', enter);
+      el.addEventListener('pointerleave', leave);
+      this._off.push(() => { el.removeEventListener('pointerenter', enter); el.removeEventListener('pointerleave', leave); });
+    });
+
+    const projects = Array.from(root.querySelectorAll('[data-project]'));
+    projects.forEach(p => {
+      const img = p.querySelector('[data-img]');
+      const huge = p.querySelector('[data-hugetitle]');
+      const enter = () => {
+        if (huge) { huge.style.transition = 'opacity .5s ease, transform .7s cubic-bezier(.16,1,.3,1)'; huge.style.opacity = '1'; huge.style.transform = 'translateY(0)'; }
+        if (img) { img.style.transition = 'filter .6s ease'; img.style.filter = 'contrast(1.06)'; }
+        cursor.textContent = p.dataset.cursor || 'View';
+        cursor.style.opacity = '1';
+        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      };
+      const leave = () => {
+        if (huge) { huge.style.opacity = '0'; huge.style.transform = 'translateY(18px)'; }
+        if (img) img.style.filter = 'none';
+        cursor.style.opacity = '0';
+        cursor.style.transform = 'translate(-50%,-50%) scale(.6)';
+      };
+      if (huge) huge.style.transform = 'translateY(18px)';
+      p.addEventListener('pointerenter', enter);
+      p.addEventListener('pointerleave', leave);
+      this._off.push(() => { p.removeEventListener('pointerenter', enter); p.removeEventListener('pointerleave', leave); });
+    });
+
+    if (reduced) return;
+
+    // — measured animation targets —
+    const nodes = Array.from(root.querySelectorAll('[data-px],[data-py],[data-mag],[data-scale],[data-scatter]'));
+    const items = nodes.map(el => ({
+      el,
+      px: parseFloat(el.dataset.px) || 0,
+      py: parseFloat(el.dataset.py) || 0,
+      mag: parseFloat(el.dataset.mag) || 0,
+      sc: parseFloat(el.dataset.scale) || 0,
+      chars: el.hasAttribute('data-scatter') || el.hasAttribute('data-mag') ? Array.from(el.querySelectorAll('[data-ch]')) : [],
+      scatter: el.hasAttribute('data-scatter'),
+      base: el.style.transform && el.style.transform !== 'none' ? el.style.transform : '',
+      top: 0, h: 0
+    }));
+    items.forEach(it => { it.el.style.willChange = 'transform'; });
+
+    const measure = () => {
+      const sy = window.scrollY;
+      items.forEach(it => {
+        const r = it.el.getBoundingClientRect();
+        it.top = r.top + sy; it.h = r.height;
+      });
+    };
+    measure();
+    const onResize = () => { measure(); this.setup && null; };
+    window.addEventListener('resize', onResize);
+    this._off.push(() => window.removeEventListener('resize', onResize));
+    setTimeout(measure, 600);
+    setTimeout(measure, 1800);
+
+    const S = { sy: window.scrollY, ty: window.scrollY, mx: 0, my: 0, tmx: 0, tmy: 0, cx: -200, cy: -200, tcx: -200, tcy: -200 };
+    const onScroll = () => { S.ty = window.scrollY; };
+    const onMove = e => {
+      S.tmx = (e.clientX / window.innerWidth - 0.5) * 2;
+      S.tmy = (e.clientY / window.innerHeight - 0.5) * 2;
+      S.tcx = e.clientX; S.tcy = e.clientY;
+      blob.style.opacity = '1';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('pointermove', onMove, { passive: true });
+    this._off.push(() => { window.removeEventListener('scroll', onScroll); window.removeEventListener('pointermove', onMove); });
+
+    const rnd = i => Math.sin(i * 12.9898) * 43758.5453 % 1;
+    const vh = () => window.innerHeight;
+
+    const loop = () => {
+      S.sy += (S.ty - S.sy) * 0.1;
+      S.mx += (S.tmx - S.mx) * 0.055;
+      S.my += (S.tmy - S.my) * 0.055;
+      S.cx += (S.tcx - S.cx) * 0.16;
+      S.cy += (S.tcy - S.cy) * 0.16;
+      cursor.style.left = S.cx + 'px'; cursor.style.top = S.cy + 'px';
+      blob.style.left = S.cx + 'px'; blob.style.top = S.cy + 'px';
+      const L = this._lens;
+      if (L && L.target) {
+        const r = L.target.getBoundingClientRect();
+        const z = L.zoom, R = blob.offsetWidth / 2;
+        L.clone.style.width = r.width + 'px';
+        L.clone.style.height = r.height + 'px';
+        L.clone.style.transform = 'translate(' + (R - (S.cx - r.left) * z) + 'px,' + (R - (S.cy - r.top) * z) + 'px) scale(' + z + ')';
+      }
+
+      items.forEach(it => {
+        const center = it.top + it.h / 2 - S.sy;
+        const c = Math.max(-1.4, Math.min(1.4, (center - vh() / 2) / (vh() / 2 + it.h / 2)));
+        const visible = Math.abs(center) < vh() * 1.6;
+        if (!visible) return;
+        const dx = it.px * c * 140 + it.mag * S.mx * 0.5;
+        const dy = it.py * c * 120 + it.mag * S.my * 0.22;
+        const sc = it.sc ? 1 + it.sc * Math.max(0, 1 - Math.abs(c)) : 1;
+        it.el.style.transform = it.base + ' translate3d(' + dx.toFixed(2) + 'px,' + dy.toFixed(2) + 'px,0)' + (sc !== 1 ? ' scale(' + sc.toFixed(4) + ')' : '');
+        if (it.chars.length) {
+          const enterP = Math.max(0, Math.min(1, (1 - Math.abs(c)) * 1.6));
+          it.chars.forEach((ch, i) => {
+            const r = rnd(i + 1);
+            const jx = it.scatter ? r * 70 * (1 - enterP) : 0;
+            const jy = it.scatter ? (r > 0 ? 1 : -1) * 40 * (1 - enterP) : 0;
+            const px = it.mag ? it.mag * S.mx * (0.35 + Math.abs(r) * 0.9) : 0;
+            const py = it.mag ? it.mag * S.my * (0.12 + Math.abs(r) * 0.3) : 0;
+            ch.style.transform = 'translate3d(' + (jx + px).toFixed(2) + 'px,' + (jy + py).toFixed(2) + 'px,0)';
+          });
+        }
+      });
+      this._raf = requestAnimationFrame(loop);
+    };
+    this._raf = requestAnimationFrame(loop);
+  }
+}
+</script>
+</body>
+</html>
