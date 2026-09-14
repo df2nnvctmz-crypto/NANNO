@@ -48,7 +48,13 @@
           <h2>Project type</h2>
           <span class="eyebrow">Step 01 / 04</span>
         </div>
-        <p class="start-hero-copy">Select one or more — mix and match, then set the scope for each on the next step.</p>
+        <div class="type-mode-row">
+          <p class="start-hero-copy" id="type-mode-copy">Select the kind of project you need.</p>
+          <button type="button" class="type-mode-toggle" id="type-mode-toggle" role="switch" aria-checked="false">
+            <span class="type-mode-toggle-track"><span class="type-mode-toggle-thumb"></span></span>
+            <span class="type-mode-toggle-label">Combine multiple types <span class="type-mode-toggle-hint">(up to 3)</span></span>
+          </button>
+        </div>
         <div class="type-grid">
           <div class="type-card">
             <input type="checkbox" name="project-type" id="type-abstract" value="abstract" checked>

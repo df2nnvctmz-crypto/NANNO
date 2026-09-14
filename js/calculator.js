@@ -37,8 +37,12 @@
     };
     var MIN_UNITS = 1;
     var MAX_UNITS = 12;
+    var MAX_TYPES = 3;
 
     var typeCheckboxes = form.querySelectorAll('input[name="project-type"]');
+    var typeModeToggle = document.getElementById('type-mode-toggle');
+    var typeModeCopy = document.getElementById('type-mode-copy');
+    var multiMode = false;
     var scopeListEl = document.getElementById('type-scope-list');
     var lowEl = document.getElementById('estimate-low');
     var highEl = document.getElementById('estimate-high');
@@ -79,6 +83,17 @@
     function getSelectedKeys() {
       return Array.prototype.filter.call(typeCheckboxes, function (cb) { return cb.checked; })
         .map(function (cb) { return cb.value; });
+    }
+
+    // In single mode (the default) a type card behaves like a radio — picking
+    // one clears the rest. Multi mode allows up to MAX_TYPES at once; once
+    // that many are checked, the remaining cards disable rather than scroll
+    // the Scope step out of view.
+    function updateCardAvailability() {
+      var selectedCount = getSelectedKeys().length;
+      typeCheckboxes.forEach(function (cb) {
+        cb.disabled = multiMode && !cb.checked && selectedCount >= MAX_TYPES;
+      });
     }
 
     function money(n) {
@@ -233,17 +248,42 @@
     }
 
     // A type checkbox can't be unchecked down to zero — the estimate always
-    // needs at least one project type to price against.
+    // needs at least one project type to price against. In single mode,
+    // checking one clears the rest (radio-style); multi mode leaves the
+    // others as they are, up to MAX_TYPES.
     typeCheckboxes.forEach(function (cb) {
       cb.addEventListener('change', function () {
+        if (!multiMode && cb.checked) {
+          typeCheckboxes.forEach(function (other) { if (other !== cb) other.checked = false; });
+        }
         if (getSelectedKeys().length === 0) {
           cb.checked = true;
           return;
         }
+        updateCardAvailability();
         renderScopeRows();
         compute();
       });
     });
+
+    if (typeModeToggle) {
+      typeModeToggle.addEventListener('click', function () {
+        multiMode = !multiMode;
+        typeModeToggle.setAttribute('aria-checked', String(multiMode));
+        if (typeModeCopy) {
+          typeModeCopy.textContent = multiMode
+            ? 'Select up to ' + MAX_TYPES + ' project types — mix and match.'
+            : 'Select the kind of project you need.';
+        }
+        if (!multiMode) {
+          var keep = getSelectedKeys()[0] || typeCheckboxes[0].value;
+          typeCheckboxes.forEach(function (cb) { cb.checked = (cb.value === keep); });
+        }
+        updateCardAvailability();
+        renderScopeRows();
+        compute();
+      });
+    }
 
     form.querySelectorAll('input[type="radio"]').forEach(function (el) {
       el.addEventListener('change', compute);
@@ -301,6 +341,7 @@
       window.location.href = mailto;
     });
 
+    updateCardAvailability();
     renderScopeRows();
     compute();
   }
