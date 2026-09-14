@@ -528,7 +528,42 @@ body:has(.slide.is-active.slide-dark) .rail-item:focus-within button:not(.is-act
 /* scope row: stepper + segmented controls */
 .scope-row { display: flex; flex-wrap: wrap; gap: clamp(24px, 5vw, 56px); }
 .scope-group { display: flex; flex-direction: column; gap: 10px; flex: 1 1 240px; }
+.scope-group--timeline { max-width: 480px; }
 .scope-group-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700); }
+
+/* per-project-type scope: one compact row per selected type, each with its
+   own deliverables count and complexity level. Scrollable internally (like
+   .work-gallery) so picking several types can't blow out the locked slide. */
+.type-scope-list {
+  display: flex; flex-direction: column;
+  max-height: min(42vh, 360px); overflow-y: auto;
+  margin: 0 0 clamp(20px, 3.5vh, 32px);
+  padding-right: 4px;
+}
+.type-scope-row { display: flex; flex-direction: column; gap: 10px; padding: clamp(12px, 2vh, 18px) 0; border-top: 2px solid var(--color-divider); }
+.type-scope-list .type-scope-row:first-child { border-top: 0; padding-top: 0; }
+.type-scope-head { display: flex; align-items: baseline; gap: 8px; }
+.type-scope-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--nn-accent); }
+.type-scope-name { font-family: var(--font-heading); font-weight: 800; font-size: clamp(14px, 1.7vw, 19px); letter-spacing: -0.01em; text-transform: uppercase; }
+.type-scope-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
+
+.stepper--compact { flex: 0 0 auto; width: 132px; }
+.stepper--compact button { font-size: 15px; padding: 6px 0; }
+.stepper--compact output { font-size: 15px; }
+
+.seg--compact { display: flex; border: 2px solid var(--color-divider); flex: 1 1 200px; }
+.seg--compact button {
+  flex: 1 1 0; background: transparent; border: 0; cursor: pointer;
+  font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--color-text); padding: 8px 4px;
+  transition: background .2s ease, color .2s ease, transform .15s cubic-bezier(.16,1,.3,1);
+}
+.seg--compact button + button { border-left: 2px solid var(--color-divider); }
+.seg--compact button:hover { background: color-mix(in srgb, var(--color-text) 6%, transparent); }
+.seg--compact button:active { transform: scale(0.95); }
+.seg--compact button.is-active { background: var(--nn-accent); color: var(--color-bg); animation: option-pop .25s cubic-bezier(.16,1,.3,1); }
+.seg--compact button.is-active:hover { background: color-mix(in srgb, var(--nn-accent) 85%, black); }
+.seg--compact button:focus-visible { outline: 2px solid var(--nn-accent); outline-offset: -2px; }
 
 .stepper { display: flex; align-items: stretch; border: 2px solid var(--color-divider); width: 100%; }
 .stepper button {
@@ -592,8 +627,10 @@ body:has(.slide.is-active.slide-dark) .rail-item:focus-within button:not(.is-act
 .price-sticky {
   position: fixed; z-index: 62; right: clamp(14px, 3vw, 32px); bottom: clamp(14px, 3vh, 28px);
   display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
+  width: max-content; max-width: min(86vw, 300px);
   padding: 12px 18px; border: 2px solid var(--color-divider); background: var(--color-bg);
-  transition: opacity .25s ease, transform .25s ease;
+  cursor: pointer;
+  transition: opacity .25s ease, transform .25s ease, max-width .3s cubic-bezier(.16,1,.3,1);
 }
 .price-sticky-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700); }
 .price-sticky-value { display: inline-block; font-family: var(--font-heading); font-weight: 800; color: var(--nn-accent); font-size: clamp(18px, 2.2vw, 24px); letter-spacing: -0.01em; }
@@ -602,6 +639,27 @@ body:has(#start-estimate.is-active) .price-sticky,
 body:has(#footer.is-active) .price-sticky {
   opacity: 0; transform: translateY(8px); pointer-events: none;
 }
+
+/* hover (or tap, or focus, for touch/keyboard) reveals what's currently
+   in the quote without leaving the step you're on. */
+.price-sticky-breakdown {
+  align-self: stretch; width: 100%;
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height .35s cubic-bezier(.16,1,.3,1), opacity .2s ease, margin-top .35s cubic-bezier(.16,1,.3,1);
+}
+.price-sticky:hover .price-sticky-breakdown,
+.price-sticky:focus-within .price-sticky-breakdown,
+.price-sticky.is-expanded .price-sticky-breakdown {
+  max-height: 260px; opacity: 1; margin-top: 10px; overflow-y: auto;
+}
+.price-sticky:hover, .price-sticky:focus-within, .price-sticky.is-expanded { max-width: min(90vw, 340px); }
+.price-sticky-row {
+  display: flex; justify-content: space-between; gap: 14px; padding: 6px 0; border-top: 1px solid var(--color-divider);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;
+  color: var(--color-neutral-700); width: 100%;
+}
+.price-sticky-row:first-child { border-top: 0; }
+.price-sticky-row span:last-child { color: var(--color-text); text-align: right; }
 @media (max-width: 560px) {
   .price-sticky { padding: 9px 14px; }
   .price-sticky-value { font-size: 17px; }

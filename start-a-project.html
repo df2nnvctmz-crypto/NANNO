@@ -32,9 +32,10 @@
   <a href="start-a-project.html" class="mobile-menu-cta">Start a project</a>
 </nav>
 
-<div class="price-sticky" id="price-sticky" aria-live="polite">
+<div class="price-sticky" id="price-sticky" tabindex="0" role="button" aria-expanded="false" aria-label="Estimate — hover or press to see what's in your quote">
   <span class="price-sticky-label">Estimate</span>
-  <span class="price-sticky-value"><span id="sticky-estimate-low">0 €</span>–<span id="sticky-estimate-high">0 €</span></span>
+  <span class="price-sticky-value" aria-live="polite"><span id="sticky-estimate-low">0 €</span>–<span id="sticky-estimate-high">0 €</span></span>
+  <div class="price-sticky-breakdown" id="sticky-breakdown"></div>
 </div>
 
 <div class="deck" id="deck">
@@ -47,9 +48,10 @@
           <h2>Project type</h2>
           <span class="eyebrow">Step 01 / 04</span>
         </div>
+        <p class="start-hero-copy">Select one or more — mix and match, then set the scope for each on the next step.</p>
         <div class="type-grid">
           <div class="type-card">
-            <input type="radio" name="project-type" id="type-abstract" value="abstract" checked>
+            <input type="checkbox" name="project-type" id="type-abstract" value="abstract" checked>
             <label for="type-abstract">
               <span class="type-num">01</span>
               <h3>Graphical abstract</h3>
@@ -57,7 +59,7 @@
             </label>
           </div>
           <div class="type-card">
-            <input type="radio" name="project-type" id="type-poster" value="poster">
+            <input type="checkbox" name="project-type" id="type-poster" value="poster">
             <label for="type-poster">
               <span class="type-num">02</span>
               <h3>Poster &amp; conference design</h3>
@@ -65,7 +67,7 @@
             </label>
           </div>
           <div class="type-card">
-            <input type="radio" name="project-type" id="type-dataviz" value="dataviz">
+            <input type="checkbox" name="project-type" id="type-dataviz" value="dataviz">
             <label for="type-dataviz">
               <span class="type-num">03</span>
               <h3>Data visualization</h3>
@@ -73,7 +75,7 @@
             </label>
           </div>
           <div class="type-card">
-            <input type="radio" name="project-type" id="type-landing" value="landing">
+            <input type="checkbox" name="project-type" id="type-landing" value="landing">
             <label for="type-landing">
               <span class="type-num">04</span>
               <h3>Landing page</h3>
@@ -81,7 +83,7 @@
             </label>
           </div>
           <div class="type-card">
-            <input type="radio" name="project-type" id="type-website" value="website">
+            <input type="checkbox" name="project-type" id="type-website" value="website">
             <label for="type-website">
               <span class="type-num">05</span>
               <h3>Product website</h3>
@@ -89,7 +91,7 @@
             </label>
           </div>
           <div class="type-card">
-            <input type="radio" name="project-type" id="type-illustration" value="illustration">
+            <input type="checkbox" name="project-type" id="type-illustration" value="illustration">
             <label for="type-illustration">
               <span class="type-num">06</span>
               <h3>Scientific illustration</h3>
@@ -106,48 +108,21 @@
           <h2>Scope</h2>
           <span class="eyebrow">Step 02 / 04</span>
         </div>
-        <div class="scope-row">
-          <div class="scope-group">
-            <span class="scope-group-label">Deliverables</span>
-            <div class="stepper">
-              <button type="button" id="figures-dec" aria-label="Fewer deliverables">−</button>
-              <output id="figures-value" for="figures-input">1</output>
-              <button type="button" id="figures-inc" aria-label="More deliverables">+</button>
+        <div class="type-scope-list" id="type-scope-list"></div>
+        <div class="scope-group scope-group--timeline">
+          <span class="scope-group-label">Timeline</span>
+          <div class="seg">
+            <div class="seg-opt">
+              <input type="radio" name="timeline" id="timeline-flexible" value="flexible">
+              <label for="timeline-flexible">Flexible<span class="seg-hint">6+ weeks</span></label>
             </div>
-            <input type="hidden" name="deliverables" id="figures-input" value="1">
-          </div>
-          <div class="scope-group">
-            <span class="scope-group-label">Complexity</span>
-            <div class="seg">
-              <div class="seg-opt">
-                <input type="radio" name="complexity" id="complexity-simple" value="simple">
-                <label for="complexity-simple">Simple<span class="seg-hint">Single concept</span></label>
-              </div>
-              <div class="seg-opt">
-                <input type="radio" name="complexity" id="complexity-standard" value="standard" checked>
-                <label for="complexity-standard">Standard<span class="seg-hint">Multi-part</span></label>
-              </div>
-              <div class="seg-opt">
-                <input type="radio" name="complexity" id="complexity-detailed" value="detailed">
-                <label for="complexity-detailed">Detailed<span class="seg-hint">Dense, rendered</span></label>
-              </div>
+            <div class="seg-opt">
+              <input type="radio" name="timeline" id="timeline-standard" value="standard" checked>
+              <label for="timeline-standard">Standard<span class="seg-hint">3–4 weeks</span></label>
             </div>
-          </div>
-          <div class="scope-group">
-            <span class="scope-group-label">Timeline</span>
-            <div class="seg">
-              <div class="seg-opt">
-                <input type="radio" name="timeline" id="timeline-flexible" value="flexible">
-                <label for="timeline-flexible">Flexible<span class="seg-hint">6+ weeks</span></label>
-              </div>
-              <div class="seg-opt">
-                <input type="radio" name="timeline" id="timeline-standard" value="standard" checked>
-                <label for="timeline-standard">Standard<span class="seg-hint">3–4 weeks</span></label>
-              </div>
-              <div class="seg-opt">
-                <input type="radio" name="timeline" id="timeline-rush" value="rush">
-                <label for="timeline-rush">Rush<span class="seg-hint">1–2 weeks</span></label>
-              </div>
+            <div class="seg-opt">
+              <input type="radio" name="timeline" id="timeline-rush" value="rush">
+              <label for="timeline-rush">Rush<span class="seg-hint">1–2 weeks</span></label>
             </div>
           </div>
         </div>
