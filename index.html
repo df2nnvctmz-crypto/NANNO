@@ -9,39 +9,75 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="home-lock">
+<body>
 
 <header class="site-header">
   <a href="index.html" class="brand">NANNO</a>
   <nav class="nav-links">
     <a href="work.html">Work</a>
-    <a href="process.html">Process</a>
-    <a href="studio.html">Studio</a>
+    <a href="about.html">About us</a>
   </nav>
   <a href="start-a-project.html" class="btn-cta">Start a project</a>
+  <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<section class="hero">
-  <div class="hero-meta">
-    <span>Scientific illustration studio</span>
-    <span>Est. 2019 / Worldwide</span>
-  </div>
+<nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="work.html">Work</a>
+  <a href="about.html">About us</a>
+  <a href="start-a-project.html" class="mobile-menu-cta">Start a project</a>
+</nav>
 
-  <h1 class="hero-title">
-    <span class="hero-line hero-line--1" data-split data-mag="10" data-px="0.04">We make</span>
-    <span class="hero-line hero-line--2" data-split data-mag="20" data-px="-0.12">Science</span>
-    <span class="hero-line hero-line--3" data-split data-mag="14" data-px="0.09">Visible<span class="accent-dot">.</span></span>
-  </h1>
+<div class="deck" id="deck">
 
-  <div class="hero-footer">
-    <p class="hero-desc">Scientific drawings &amp; graphical abstracts for ideas that deserve to be understood.</p>
-    <div class="hero-links">
-      <a href="work.html" class="link-explore">Explore our work →</a>
-      <a href="start-a-project.html" class="link-start">Start a project</a>
+  <section class="slide" id="hero" data-slide data-label="Home">
+    <div class="hero">
+      <div class="hero-meta">
+        <span>Scientific illustration studio</span>
+        <span>Est. 2019 / Worldwide</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-line hero-line--1" data-split data-mag="10">We make</span>
+        <span class="hero-line hero-line--2" data-split data-mag="20">Science</span>
+        <span class="hero-line hero-line--3" data-split data-mag="14">Visible<span class="accent-dot">.</span></span>
+      </h1>
+      <div class="hero-footer">
+        <p class="hero-desc">Scientific drawings &amp; graphical abstracts for ideas that deserve to be understood.</p>
+        <div class="hero-links">
+          <a href="work.html" class="link-explore">Explore our work →</a>
+          <a href="start-a-project.html" class="link-start">Start a project</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="slide slide-dark" id="footer" data-slide data-label="Footer">
+    <div class="footer-slide">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="footer-brand">NANNO</span>
+          <span class="footer-muted">Scientific illustration</span>
+          <span class="footer-muted">Graphical abstracts</span>
+          <span class="footer-muted">Scientific visualization</span>
+        </div>
+        <div class="footer-col">
+          <a href="mailto:studio@nanno.co">studio@nanno.co</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div class="footer-col footer-muted">
+          <span>© 2026</span>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 <script src="js/main.js" defer></script>
+<script src="js/deck.js" defer></script>
 </body>
 </html>

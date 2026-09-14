@@ -1,20 +1,24 @@
 // Start-a-project page: live price calculator + mailto submission.
 // Pricing is an illustrative ballpark, not a real quoting engine.
+//
+// Exposed as window.NANNO.initCalculator() so js/transitions.js can re-run
+// this after a soft-navigation into this page swaps in a fresh #start-form.
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', init);
+  window.NANNO = window.NANNO || {};
 
   function init() {
     var form = document.getElementById('start-form');
     if (!form) return;
 
     var PROJECT_TYPES = {
-      illustration: { label: 'Scientific illustration', base: 450, perFigure: 180 },
-      abstract: { label: 'Graphical abstract', base: 650, perFigure: 220 },
-      mechanism: { label: 'Mechanism & pathway', base: 750, perFigure: 260 },
-      publication: { label: 'Publication artwork', base: 550, perFigure: 200 },
-      direction: { label: 'Visual science direction', base: 900, perFigure: 300 }
+      abstract: { label: 'Graphical abstract', base: 650, perUnit: 220 },
+      poster: { label: 'Poster & conference design', base: 380, perUnit: 150 },
+      dataviz: { label: 'Data visualization', base: 500, perUnit: 180 },
+      landing: { label: 'Landing page', base: 1800, perUnit: 600 },
+      website: { label: 'Product website', base: 3200, perUnit: 900 },
+      illustration: { label: 'Scientific illustration', base: 450, perUnit: 180 }
     };
     var COMPLEXITY = {
       simple: { label: 'Simple', mult: 0.85 },
@@ -26,20 +30,35 @@
       standard: { label: 'Standard', mult: 1 },
       rush: { label: 'Rush', mult: 1.4 }
     };
-    var MIN_FIGURES = 1;
-    var MAX_FIGURES = 12;
+    var MIN_UNITS = 1;
+    var MAX_UNITS = 12;
 
-    var figuresValueEl = document.getElementById('figures-value');
-    var figuresInputEl = document.getElementById('figures-input');
-    var figuresDecBtn = document.getElementById('figures-dec');
-    var figuresIncBtn = document.getElementById('figures-inc');
+    var unitsValueEl = document.getElementById('figures-value');
+    var unitsInputEl = document.getElementById('figures-input');
+    var unitsDecBtn = document.getElementById('figures-dec');
+    var unitsIncBtn = document.getElementById('figures-inc');
     var lowEl = document.getElementById('estimate-low');
     var highEl = document.getElementById('estimate-high');
     var breakdownEl = document.getElementById('estimate-breakdown');
+    var stickyLowEl = document.getElementById('sticky-estimate-low');
+    var stickyHighEl = document.getElementById('sticky-estimate-high');
 
-    var figures = parseInt(figuresInputEl.value, 10) || 1;
+    var units = parseInt(unitsInputEl.value, 10) || 1;
     var currentLow = 0;
     var currentHigh = 0;
+    var hasComputedOnce = false;
+    var estimatePriceEl = document.querySelector('.estimate-price');
+    var stickyValueEl = document.querySelector('.price-sticky-value');
+
+    // Restart a CSS animation on an element by forcing a reflow between
+    // removing and re-adding the class — used for the little "pop" pulse
+    // that confirms a number just changed.
+    function pulse(el) {
+      if (!el) return;
+      el.classList.remove('is-updating');
+      void el.offsetWidth;
+      el.classList.add('is-updating');
+    }
 
     function selectedValue(name) {
       var el = form.querySelector('input[name="' + name + '"]:checked');
@@ -55,11 +74,11 @@
     }
 
     function compute() {
-      var type = PROJECT_TYPES[selectedValue('project-type')] || PROJECT_TYPES.illustration;
+      var type = PROJECT_TYPES[selectedValue('project-type')] || PROJECT_TYPES.abstract;
       var complexity = COMPLEXITY[selectedValue('complexity')] || COMPLEXITY.standard;
       var timeline = TIMELINE[selectedValue('timeline')] || TIMELINE.standard;
 
-      var subtotal = type.base + (figures - 1) * type.perFigure;
+      var subtotal = type.base + (units - 1) * type.perUnit;
       var adjusted = subtotal * complexity.mult * timeline.mult;
       var low = round10(adjusted * 0.9);
       var high = round10(adjusted * 1.15);
@@ -69,9 +88,9 @@
     }
 
     function renderBreakdown(type, complexity, timeline) {
-      var figureLabel = figures === 1 ? '1 figure' : figures + ' figures';
+      var unitLabel = units === 1 ? '1 deliverable' : units + ' deliverables';
       var rows = [
-        [type.label, figureLabel],
+        [type.label, unitLabel],
         ['Complexity', complexity.label + ' (' + complexity.mult + '×)'],
         ['Timeline', timeline.label + ' (' + timeline.mult + '×)']
       ];
@@ -95,12 +114,20 @@
       var start = null;
       var duration = 380;
 
+      if (hasComputedOnce && (newLow !== fromLow || newHigh !== fromHigh)) {
+        pulse(estimatePriceEl);
+        pulse(stickyValueEl);
+      }
+      hasComputedOnce = true;
+
       function step(ts) {
         if (start === null) start = ts;
         var t = Math.min(1, (ts - start) / duration);
         var eased = 1 - Math.pow(1 - t, 3);
         lowEl.textContent = money(fromLow + (newLow - fromLow) * eased);
         highEl.textContent = money(fromHigh + (newHigh - fromHigh) * eased);
+        if (stickyLowEl) stickyLowEl.textContent = money(fromLow + (newLow - fromLow) * eased);
+        if (stickyHighEl) stickyHighEl.textContent = money(fromHigh + (newHigh - fromHigh) * eased);
         if (t < 1) {
           requestAnimationFrame(step);
         } else {
@@ -111,17 +138,19 @@
       requestAnimationFrame(step);
     }
 
-    function setFigures(n) {
-      figures = Math.max(MIN_FIGURES, Math.min(MAX_FIGURES, n));
-      figuresValueEl.textContent = String(figures);
-      figuresInputEl.value = String(figures);
-      figuresDecBtn.disabled = figures <= MIN_FIGURES;
-      figuresIncBtn.disabled = figures >= MAX_FIGURES;
+    function setUnits(n) {
+      var next = Math.max(MIN_UNITS, Math.min(MAX_UNITS, n));
+      if (next !== units) pulse(unitsValueEl);
+      units = next;
+      unitsValueEl.textContent = String(units);
+      unitsInputEl.value = String(units);
+      unitsDecBtn.disabled = units <= MIN_UNITS;
+      unitsIncBtn.disabled = units >= MAX_UNITS;
       compute();
     }
 
-    figuresDecBtn.addEventListener('click', function () { setFigures(figures - 1); });
-    figuresIncBtn.addEventListener('click', function () { setFigures(figures + 1); });
+    unitsDecBtn.addEventListener('click', function () { setUnits(units - 1); });
+    unitsIncBtn.addEventListener('click', function () { setUnits(units + 1); });
 
     form.querySelectorAll('input[type="radio"]').forEach(function (el) {
       el.addEventListener('change', compute);
@@ -133,7 +162,7 @@
         form.reportValidity();
         return;
       }
-      var type = PROJECT_TYPES[selectedValue('project-type')] || PROJECT_TYPES.illustration;
+      var type = PROJECT_TYPES[selectedValue('project-type')] || PROJECT_TYPES.abstract;
       var complexity = COMPLEXITY[selectedValue('complexity')] || COMPLEXITY.standard;
       var timeline = TIMELINE[selectedValue('timeline')] || TIMELINE.standard;
       var name = document.getElementById('field-name').value.trim();
@@ -145,7 +174,7 @@
         'Name: ' + name,
         'Email: ' + email,
         'Project type: ' + type.label,
-        'Figures: ' + figures,
+        'Deliverables: ' + units,
         'Complexity: ' + complexity.label,
         'Timeline: ' + timeline.label,
         'Estimated range: ' + lowEl.textContent + '–' + highEl.textContent,
@@ -159,6 +188,9 @@
       window.location.href = mailto;
     });
 
-    setFigures(figures);
+    setUnits(units);
   }
+
+  document.addEventListener('DOMContentLoaded', init);
+  window.NANNO.initCalculator = init;
 })();

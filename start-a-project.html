@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Start a Project — NANNO</title>
-<meta name="description" content="Tell NANNO what you need drawn and get an instant ballpark estimate, then send us the brief.">
+<meta name="description" content="Tell us about your project — graphical abstract, poster, data visualization, or illustration — and get a ballpark estimate in a few clicks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
@@ -15,189 +15,215 @@
   <a href="index.html" class="brand">NANNO</a>
   <nav class="nav-links">
     <a href="work.html">Work</a>
-    <a href="process.html">Process</a>
-    <a href="studio.html">Studio</a>
+    <a href="about.html">About us</a>
   </nav>
   <a href="start-a-project.html" class="btn-cta">Start a project</a>
+  <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<section class="start-hero">
-  <h1 data-split data-scatter>Let's scope it out.</h1>
-  <p>Answer a few questions for an instant ballpark estimate, then send us the brief — we'll follow up within two business days.</p>
-</section>
+<nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="work.html">Work</a>
+  <a href="about.html">About us</a>
+  <a href="start-a-project.html" class="mobile-menu-cta">Start a project</a>
+</nav>
 
-<form id="start-form" novalidate>
+<div class="price-sticky" id="price-sticky" aria-live="polite">
+  <span class="price-sticky-label">Estimate</span>
+  <span class="price-sticky-value"><span id="sticky-estimate-low">$0</span>–<span id="sticky-estimate-high">$0</span></span>
+</div>
 
-  <section class="start-section">
-    <div class="start-section-head">
-      <h2 data-split data-mag="4">Project type</h2>
-      <span class="eyebrow">Step 01 / 04</span>
-    </div>
+<div class="deck" id="deck">
 
-    <div class="type-grid" data-reveal>
-      <div class="type-card">
-        <input type="radio" name="project-type" id="type-illustration" value="illustration" checked>
-        <label for="type-illustration">
-          <span class="type-num">01</span>
-          <h3>Scientific illustration</h3>
-          <p>Detailed visual representations of biological, medical, chemical, and physical concepts.</p>
-        </label>
+  <form id="start-form" novalidate>
+
+    <section class="slide" id="start-type" data-slide data-label="Start: type">
+      <div class="start-slide">
+        <div class="start-slide-head">
+          <h2>Project type</h2>
+          <span class="eyebrow">Step 01 / 04</span>
+        </div>
+        <div class="type-grid">
+          <div class="type-card">
+            <input type="radio" name="project-type" id="type-abstract" value="abstract" checked>
+            <label for="type-abstract">
+              <span class="type-num">01</span>
+              <h3>Graphical abstract</h3>
+              <p>Clear visual summaries designed to communicate research at a glance.</p>
+            </label>
+          </div>
+          <div class="type-card">
+            <input type="radio" name="project-type" id="type-poster" value="poster">
+            <label for="type-poster">
+              <span class="type-num">02</span>
+              <h3>Poster &amp; conference design</h3>
+              <p>Conference posters and presentation materials that stand out in the room.</p>
+            </label>
+          </div>
+          <div class="type-card">
+            <input type="radio" name="project-type" id="type-dataviz" value="dataviz">
+            <label for="type-dataviz">
+              <span class="type-num">03</span>
+              <h3>Data visualization</h3>
+              <p>Charts, diagrams, and visual systems that make complex data legible.</p>
+            </label>
+          </div>
+          <div class="type-card">
+            <input type="radio" name="project-type" id="type-landing" value="landing">
+            <label for="type-landing">
+              <span class="type-num">04</span>
+              <h3>Landing page</h3>
+              <p>A marketing or product landing page built to explain and convert.</p>
+            </label>
+          </div>
+          <div class="type-card">
+            <input type="radio" name="project-type" id="type-website" value="website">
+            <label for="type-website">
+              <span class="type-num">05</span>
+              <h3>Product website</h3>
+              <p>A full product or company website, designed and built end to end.</p>
+            </label>
+          </div>
+          <div class="type-card">
+            <input type="radio" name="project-type" id="type-illustration" value="illustration">
+            <label for="type-illustration">
+              <span class="type-num">06</span>
+              <h3>Scientific illustration</h3>
+              <p>Detailed visual representations of biological, medical, chemical, and physical concepts.</p>
+            </label>
+          </div>
+        </div>
       </div>
-      <div class="type-card">
-        <input type="radio" name="project-type" id="type-abstract" value="abstract">
-        <label for="type-abstract">
-          <span class="type-num">02</span>
-          <h3>Graphical abstract</h3>
-          <p>Clear visual summaries designed to communicate research at a glance.</p>
-        </label>
+    </section>
+
+    <section class="slide" id="start-scope" data-slide data-label="Start: scope">
+      <div class="start-slide">
+        <div class="start-slide-head">
+          <h2>Scope</h2>
+          <span class="eyebrow">Step 02 / 04</span>
+        </div>
+        <div class="scope-row">
+          <div class="scope-group">
+            <span class="scope-group-label">Deliverables</span>
+            <div class="stepper">
+              <button type="button" id="figures-dec" aria-label="Fewer deliverables">−</button>
+              <output id="figures-value" for="figures-input">1</output>
+              <button type="button" id="figures-inc" aria-label="More deliverables">+</button>
+            </div>
+            <input type="hidden" name="deliverables" id="figures-input" value="1">
+          </div>
+          <div class="scope-group">
+            <span class="scope-group-label">Complexity</span>
+            <div class="seg">
+              <div class="seg-opt">
+                <input type="radio" name="complexity" id="complexity-simple" value="simple">
+                <label for="complexity-simple">Simple<span class="seg-hint">Single concept</span></label>
+              </div>
+              <div class="seg-opt">
+                <input type="radio" name="complexity" id="complexity-standard" value="standard" checked>
+                <label for="complexity-standard">Standard<span class="seg-hint">Multi-part</span></label>
+              </div>
+              <div class="seg-opt">
+                <input type="radio" name="complexity" id="complexity-detailed" value="detailed">
+                <label for="complexity-detailed">Detailed<span class="seg-hint">Dense, rendered</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="scope-group">
+            <span class="scope-group-label">Timeline</span>
+            <div class="seg">
+              <div class="seg-opt">
+                <input type="radio" name="timeline" id="timeline-flexible" value="flexible">
+                <label for="timeline-flexible">Flexible<span class="seg-hint">6+ weeks</span></label>
+              </div>
+              <div class="seg-opt">
+                <input type="radio" name="timeline" id="timeline-standard" value="standard" checked>
+                <label for="timeline-standard">Standard<span class="seg-hint">3–4 weeks</span></label>
+              </div>
+              <div class="seg-opt">
+                <input type="radio" name="timeline" id="timeline-rush" value="rush">
+                <label for="timeline-rush">Rush<span class="seg-hint">1–2 weeks</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="type-card">
-        <input type="radio" name="project-type" id="type-mechanism" value="mechanism">
-        <label for="type-mechanism">
-          <span class="type-num">03</span>
-          <h3>Mechanism &amp; pathway</h3>
-          <p>Precise visual explanations of biological pathways and molecular mechanisms.</p>
-        </label>
+    </section>
+
+    <section class="slide" id="start-estimate" data-slide data-label="Start: estimate">
+      <div class="start-slide">
+        <div class="start-slide-head">
+          <h2>Estimate</h2>
+          <span class="eyebrow">Step 03 / 04</span>
+        </div>
+        <div class="estimate-panel">
+          <span class="estimate-label">Ballpark estimate</span>
+          <div class="estimate-price"><span id="estimate-low">$0</span>–<span id="estimate-high">$0</span></div>
+          <div class="estimate-breakdown" id="estimate-breakdown"></div>
+          <p class="estimate-note">This is a rough estimate to help you plan — final quotes are scoped once we see your material.</p>
+        </div>
       </div>
-      <div class="type-card">
-        <input type="radio" name="project-type" id="type-publication" value="publication">
-        <label for="type-publication">
-          <span class="type-num">04</span>
-          <h3>Publication artwork</h3>
-          <p>Publication-ready figures, cover artwork, and scientific visual communication.</p>
-        </label>
+    </section>
+
+    <section class="slide" id="start-brief" data-slide data-label="Start: brief">
+      <div class="start-slide">
+        <div class="start-slide-head">
+          <h2>Your brief</h2>
+          <span class="eyebrow">Step 04 / 04</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap: clamp(14px, 2.5vw, 22px);">
+          <div class="field-row">
+            <div class="field">
+              <label for="field-name">Name</label>
+              <input type="text" id="field-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="field-email">Email</label>
+              <input type="email" id="field-email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="field-message">Tell us about the project</label>
+            <textarea id="field-message" name="message" placeholder="The paper, the audience, and the story you want the image to tell."></textarea>
+          </div>
+          <div class="start-submit-row">
+            <button type="submit" class="btn-submit">Send inquiry →</button>
+            <span class="start-submit-note">Opens your email client, prefilled with these details</span>
+          </div>
+        </div>
       </div>
-      <div class="type-card">
-        <input type="radio" name="project-type" id="type-direction" value="direction">
-        <label for="type-direction">
-          <span class="type-num">05</span>
-          <h3>Visual science direction</h3>
-          <p>Ongoing creative direction for a lab, journal, or platform's visual language.</p>
-        </label>
+    </section>
+
+  </form>
+
+  <section class="slide slide-dark" id="footer" data-slide data-label="Footer">
+    <div class="footer-slide">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="footer-brand">NANNO</span>
+          <span class="footer-muted">Scientific illustration</span>
+          <span class="footer-muted">Graphical abstracts</span>
+          <span class="footer-muted">Scientific visualization</span>
+        </div>
+        <div class="footer-col">
+          <a href="mailto:studio@nanno.co">studio@nanno.co</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div class="footer-col footer-muted">
+          <span>© 2026</span>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="start-section">
-    <div class="start-section-head">
-      <h2 data-split data-mag="4">Scope</h2>
-      <span class="eyebrow">Step 02 / 04</span>
-    </div>
-
-    <div class="scope-row" data-reveal>
-      <div class="scope-group">
-        <span class="scope-group-label">Figures</span>
-        <div class="stepper">
-          <button type="button" id="figures-dec" aria-label="Fewer figures">−</button>
-          <output id="figures-value" for="figures-input">1</output>
-          <button type="button" id="figures-inc" aria-label="More figures">+</button>
-        </div>
-        <input type="hidden" name="figures" id="figures-input" value="1">
-      </div>
-
-      <div class="scope-group">
-        <span class="scope-group-label">Complexity</span>
-        <div class="seg">
-          <div class="seg-opt">
-            <input type="radio" name="complexity" id="complexity-simple" value="simple">
-            <label for="complexity-simple">Simple<span class="seg-hint">Single concept</span></label>
-          </div>
-          <div class="seg-opt">
-            <input type="radio" name="complexity" id="complexity-standard" value="standard" checked>
-            <label for="complexity-standard">Standard<span class="seg-hint">Multi-part</span></label>
-          </div>
-          <div class="seg-opt">
-            <input type="radio" name="complexity" id="complexity-detailed" value="detailed">
-            <label for="complexity-detailed">Detailed<span class="seg-hint">Dense, rendered</span></label>
-          </div>
-        </div>
-      </div>
-
-      <div class="scope-group">
-        <span class="scope-group-label">Timeline</span>
-        <div class="seg">
-          <div class="seg-opt">
-            <input type="radio" name="timeline" id="timeline-flexible" value="flexible">
-            <label for="timeline-flexible">Flexible<span class="seg-hint">6+ weeks</span></label>
-          </div>
-          <div class="seg-opt">
-            <input type="radio" name="timeline" id="timeline-standard" value="standard" checked>
-            <label for="timeline-standard">Standard<span class="seg-hint">3–4 weeks</span></label>
-          </div>
-          <div class="seg-opt">
-            <input type="radio" name="timeline" id="timeline-rush" value="rush">
-            <label for="timeline-rush">Rush<span class="seg-hint">1–2 weeks</span></label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="start-section">
-    <div class="start-section-head">
-      <h2 data-split data-mag="4">Estimate</h2>
-      <span class="eyebrow">Step 03 / 04</span>
-    </div>
-
-    <div class="estimate-panel" data-reveal>
-      <span class="estimate-label">Ballpark estimate</span>
-      <div class="estimate-price"><span id="estimate-low">$0</span>–<span id="estimate-high">$0</span></div>
-      <div class="estimate-breakdown" id="estimate-breakdown"></div>
-      <p class="estimate-note">This is a rough estimate to help you plan — final quotes are scoped once we see your material.</p>
-    </div>
-  </section>
-
-  <section class="start-section">
-    <div class="start-section-head">
-      <h2 data-split data-mag="4">Your brief</h2>
-      <span class="eyebrow">Step 04 / 04</span>
-    </div>
-
-    <div data-reveal style="display:flex; flex-direction:column; gap: clamp(20px, 3vw, 32px);">
-      <div class="field-row">
-        <div class="field">
-          <label for="field-name">Name</label>
-          <input type="text" id="field-name" name="name" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="field-email">Email</label>
-          <input type="email" id="field-email" name="email" autocomplete="email" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="field-message">Tell us about the project</label>
-        <textarea id="field-message" name="message" placeholder="The paper, the audience, and the story you want the image to tell."></textarea>
-      </div>
-
-      <div class="start-submit-row">
-        <button type="submit" class="btn-submit">Send inquiry →</button>
-        <span class="start-submit-note">Opens your email client, prefilled with these details</span>
-      </div>
-    </div>
-  </section>
-
-</form>
-
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <span class="footer-brand">NANNO</span>
-      <span class="footer-muted">Scientific illustration</span>
-      <span class="footer-muted">Graphical abstracts</span>
-      <span class="footer-muted">Scientific visualization</span>
-    </div>
-    <div class="footer-col">
-      <a href="mailto:studio@nanno.co">studio@nanno.co</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-    </div>
-    <div class="footer-col footer-muted">
-      <span>© 2026</span>
-    </div>
-  </div>
-</footer>
+</div>
 
 <script src="js/main.js" defer></script>
 <script src="js/calculator.js" defer></script>
+<script src="js/deck.js" defer></script>
 </body>
 </html>
