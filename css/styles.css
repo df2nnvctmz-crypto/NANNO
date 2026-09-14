@@ -384,6 +384,44 @@ body:has(.slide.is-active.slide-dark) .rail-item:focus-within button:not(.is-act
 }
 .about-stats a { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: var(--nn-accent); text-decoration: none; margin-top: 6px; }
 
+/* ── team ──────────────────────────────────────────────────────────── */
+
+.section-team { height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.team-title {
+  margin-bottom: 10px; max-width: 20ch;
+  font-size: clamp(26px, 5.5vw, 84px); line-height: 0.92; letter-spacing: -0.04em; text-transform: uppercase;
+}
+.team-meta {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
+  margin-bottom: clamp(20px, 4vh, 40px);
+}
+.team-location {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700);
+}
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 56px);
+  border-top: 2px solid var(--color-divider); padding-top: clamp(20px, 3vh, 32px);
+}
+.team-card { display: flex; gap: clamp(14px, 2vw, 20px); }
+.team-avatar {
+  flex: 0 0 auto; width: clamp(64px, 7vw, 88px); height: clamp(64px, 7vw, 88px); border-radius: 999px;
+  border: 2px solid var(--color-divider); background: var(--color-surface); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-weight: 800; font-size: clamp(17px, 1.8vw, 22px); color: var(--nn-accent);
+}
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.team-info { display: flex; flex-direction: column; gap: 4px; padding-top: 2px; }
+.team-name {
+  display: inline-flex; align-items: baseline; gap: 5px; width: fit-content;
+  font-family: var(--font-heading); font-weight: 800; font-size: clamp(15px, 1.3vw, 19px);
+  letter-spacing: -0.01em; color: var(--color-text); text-decoration: none; transition: color .2s ease;
+}
+.team-name span { font-size: 0.75em; opacity: 0.5; transition: opacity .2s ease; }
+.team-name:hover { color: var(--nn-accent); }
+.team-name:hover span { opacity: 1; }
+.team-role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--nn-accent); }
+.team-bio { margin-top: 4px; max-width: 42ch; font-size: clamp(12.5px, 1.05vw, 14px); line-height: 1.5; color: var(--color-neutral-800); text-wrap: pretty; }
+
 /* ── contact / final CTA ────────────────────────────────────────────── */
 
 .section-contact { height: 100%; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
