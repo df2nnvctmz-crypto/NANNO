@@ -66,7 +66,7 @@
     }
 
     function money(n) {
-      return '$' + Math.round(n).toLocaleString('en-US');
+      return Math.round(n).toLocaleString('de-DE') + ' €';
     }
 
     function round10(n) {
