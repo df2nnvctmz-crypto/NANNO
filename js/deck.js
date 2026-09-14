@@ -152,6 +152,7 @@
   // -- mobile hamburger menu (nav-links are hidden below 700px) --
   var menuToggle = document.getElementById('menu-toggle');
   var mobileMenu = document.getElementById('mobile-menu');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
   function closeMobileMenu() {
     if (!mobileMenu || !mobileMenu.classList.contains('is-open')) return;
     mobileMenu.classList.remove('is-open');
@@ -164,6 +165,7 @@
       mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
       menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
     mobileMenu.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', closeMobileMenu);
     });
